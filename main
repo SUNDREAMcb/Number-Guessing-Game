@@ -1,0 +1,21 @@
+import random
+
+secret_number = random.randint(1,200)
+print("Python has generated a random number from 1-200, can you guess which?")
+success = False
+def Get_Score(num1,guess):
+    return num1 - guess
+while success != True:
+    guess = int(input("What number do you think Python generated?: "))
+    faraway = abs(Get_Score(secret_number,guess))
+    if faraway <= 10:
+        if faraway == 0:
+            success = True
+            print("Correct!")
+            break
+        else:
+            print(f"So close! Only {faraway} off..")
+    elif guess > secret_number:
+        print(f"Too High, Try Again, Secret number is {faraway} away")
+    else:
+        print(f"Too low, Try Again, Secret number is {faraway} away")
